@@ -24,7 +24,9 @@ fun main() {
 fun find2020(index: Int, list: MutableList<Int>) : Int {
     val candidate = list[index]
     println("trying $candidate")
-    list.forEach { if(it + candidate == 2020){
+    val candidates = list
+    candidates[index] = 0 //remove index itself
+    candidates.forEach { if(it + candidate == 2020){
         println("Found: $candidate + $it")
         return candidate * it
         }
