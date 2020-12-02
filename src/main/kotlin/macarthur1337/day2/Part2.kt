@@ -19,9 +19,6 @@ fun main() {
     println("Found: ${passwords.size}")
 }
 
-/**
- * recursively find solution
- */
 fun checkPositions(line: String) : Boolean {
     val firstPosition = line.substringBefore('-').toInt()-1
     val secondPosition = line.substringAfter('-').substringBefore(' ').toInt()-1

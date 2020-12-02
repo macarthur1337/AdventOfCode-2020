@@ -19,9 +19,6 @@ fun main() {
     println("Found: ${passwords.size}")
 }
 
-/**
- * recursively find solution
- */
 fun checkValidity(line: String) : Boolean {
     val lowerBound = line.substringBefore('-').toInt()
     val upperBound = line.substringAfter('-').substringBefore(' ').toInt()
