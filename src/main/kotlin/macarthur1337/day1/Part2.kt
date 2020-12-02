@@ -14,8 +14,8 @@ fun main() {
     inputStream.bufferedReader().useLines { lines -> lines.forEach { lineList.add(it.toInt()) } }
 
     //brute force / random walk
-    var found = true
-    while(found){
+    var unfound = true
+    while(unfound){
         val first = lineList.shuffled()
         val second = lineList.shuffled()
         val third = lineList.shuffled()
@@ -26,7 +26,7 @@ fun main() {
                 println("Found ${first[index]} + ${second[index]} + ${third[index]}")
                 val result = first[index] * second[index] * third[index]
                 println("Found: $result")
-                found = false
+                unfound = false
                 break
             }
             index++
