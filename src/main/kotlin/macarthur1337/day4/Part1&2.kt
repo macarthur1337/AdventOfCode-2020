@@ -46,11 +46,10 @@ data class Passport(
                 entries["byr"]!!.toInt() in 1920..2002 &&
                 entries["iyr"]!!.toInt() in 2010..2020 &&
                 entries["eyr"]!!.toInt() in 2020..2030 &&
-                (entries.contains("hgt") &&
-                        ((entries["hgt"]!!.contains("cm") &&
-                                entries["hgt"]!!.substringBefore("cm").toInt() in 150..193) ||
-                                (entries["hgt"]!!.contains("in") &&
-                                        entries["hgt"]!!.substringBefore("in").toInt() in 59..76))) &&
+                ((entries["hgt"]!!.contains("cm") &&
+                        entries["hgt"]!!.substringBefore("cm").toInt() in 150..193) ||
+                        (entries["hgt"]!!.contains("in") &&
+                                entries["hgt"]!!.substringBefore("in").toInt() in 59..76)) &&
                 regexHCL.matches(entries["hcl"]!!) &&
                 eyeColors.contains(entries["ecl"]) &&
                 regexPID.matches(entries["pid"]!!)
