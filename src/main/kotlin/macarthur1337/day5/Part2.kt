@@ -21,17 +21,12 @@ fun main() {
         }
     }
 
-    println(passes.max())
+    val sortedSeats = passes.sorted()
+    var previousSeat = sortedSeats.first()
+    sortedSeats.drop(1).forEach {
+        if (it - previousSeat == 2) println(previousSeat + 1)
+        previousSeat = it
+    }
 }
 
-fun seats(pass: String, lower: Int, upper: Int): Int {
-    if (pass.isNotEmpty()) {
-        val newPass = pass.substring(1)
-        val newRange = (lower + upper) / 2
-        when (pass[0]) {
-            'R', 'B' -> return seats(newPass, newRange, upper)
-            'L', 'F' -> return seats(newPass, lower, newRange)
-        }
-    }
-    return upper - 1
-}
+
