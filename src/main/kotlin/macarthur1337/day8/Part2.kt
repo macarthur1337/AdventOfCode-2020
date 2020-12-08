@@ -10,20 +10,20 @@ import java.io.InputStream
 fun main() {
     val inputStream: InputStream = ResourceUtils.getFile("classpath:input8").inputStream()
 
+    val original = mutableListOf<Instruction>()
+
     inputStream.bufferedReader().useLines { lines ->
         lines.forEach {
-            instructions.add(Instruction(it.substringBefore(' '), it.substringAfter(' ').toInt()))
+            original.add(Instruction(it.substringBefore(' '), it.substringAfter(' ').toInt()))
         }
     }
-
-    val copy = instructions.map { it.copy() }
 
     var finger = 0
     var incomplete = true
     while (incomplete) {
         accumulator = 0
 
-        instructions = copy.map { it.copy() }.toMutableList()
+        instructions = original.map { it.copy() }.toMutableList()
         val pointer = instructions.filter { it.instruction == "nop" || it.instruction == "jmp" }[finger]
 
         pointer.instruction = if (pointer.instruction == "jmp") "nop" else "jmp"

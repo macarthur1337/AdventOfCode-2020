@@ -12,7 +12,6 @@ fun main() {
 
     inputStream.bufferedReader().useLines { lines -> lines.forEach { nodes.add(match(it)) } }
     countBags("shiny gold")
-    println(nodes)
     println(seen.distinct().size)
 }
 
