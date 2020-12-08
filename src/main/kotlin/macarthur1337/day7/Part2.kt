@@ -17,10 +17,8 @@ fun main() {
 
 fun bagCount(bag: String): Int {
     val list = nodes.filter { it.color == bag }[0].list
-
-    //stop condition a bg with no others
-    if(list.isEmpty()) return 0
-    return list.toList().sumBy { it. second + it.second * bagCount(it.first) }
+    //stop condition a ba g with no rules
+    return if(list.isEmpty()) return 0 else list.toList().sumBy { it. second + it.second * bagCount(it.first) }
 }
 
 
