@@ -2,7 +2,6 @@ package macarthur1337.day9
 
 import org.springframework.util.ResourceUtils
 import java.io.InputStream
-import java.math.BigInteger
 
 
 /**
@@ -12,7 +11,7 @@ import java.math.BigInteger
 fun main() {
     val inputStream: InputStream = ResourceUtils.getFile("classpath:input9").inputStream()
 
-    inputStream.bufferedReader().useLines { lines -> lines.forEach { numbers.add(it.toBigInteger()) } }
+    inputStream.bufferedReader().useLines { lines -> lines.forEach { numbers.add(it.toLong()) } }
 
     val preamble = 25
     var index = preamble
@@ -27,9 +26,9 @@ fun main() {
     println("solution: ${result.first() + result.last()}")
 }
 
-fun contiguousSet(end: Int): MutableList<BigInteger> {
+fun contiguousSet(end: Int): MutableList<Long> {
     for (i in 0..end) {
-        var sum: BigInteger = BigInteger.ZERO
+        var sum: Long = 0
         for (j in i..end) {
             sum += numbers[j]
             if (sum == numbers[end]) {
