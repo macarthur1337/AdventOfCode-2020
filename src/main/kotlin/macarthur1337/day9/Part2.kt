@@ -31,11 +31,8 @@ fun contiguousSet(end: Int): MutableList<Long> {
         var sum: Long = 0
         for (j in i..end) {
             sum += numbers[j]
-            if (sum == numbers[end]) {
-                return numbers.subList(i, j)
-            }
-            if (sum > numbers[end])
-                break
+            if (sum == numbers[end]) return numbers.subList(i, j)
+            if (sum > numbers[end]) break
         }
     }
     throw Exception("No set found")
