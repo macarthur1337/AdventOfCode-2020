@@ -20,7 +20,6 @@ fun main() {
     while (permutations(numbers.subList(index - preamble, index)).filter { (a, b) -> a + b == numbers[index] }.any()) {
         index++
     }
-    println(numbers[index])
 
     val result = contiguousSet(index)
     result.sort()
